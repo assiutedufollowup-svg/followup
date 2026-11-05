@@ -1,0 +1,7 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // لا وصول من المتصفح إطلاقًا؛ الكتابة تتم فقط من خادم Apps Script بصلاحيات المالك
+    match /{document=**} { allow read, write: if false; }
+  }
+}
